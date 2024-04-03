@@ -3,11 +3,14 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include "simple_system_common.h"
-// #include "stdio.h"
-volatile float a, b, c;
+volatile float a, b, c, d, e, f, g;
 
 void add(float a, float b, float *res) {
   *res = a + a * b;
+}
+
+void fmadd(float op1, float op2, float op3, float *res) {
+  *res = (op1*op2)+op3;
 }
 
 int main(int argc, char **argv) {
@@ -19,6 +22,13 @@ int main(int argc, char **argv) {
   b = 475.874;
   add(a, b, &c);
   // printf("The result is: %f", c);
+
+  d = 11.9888;
+  e = 0.19282;
+  f = -14.11111111;
+  fmadd(d, e, f, &g);
+  // printf("Result2 is: %f", g);
+
 
 
   puts("Hello simple system\n");

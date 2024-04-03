@@ -10,6 +10,7 @@ filesets:
       - lowrisc:ibex:ibex_top_tracing
       - lowrisc:ibex:sim_shared
       - lowrisc:ibex:fpu_ss
+      - lowrisc:ibex:rvfpm
     files:
       - rtl/ibex_simple_system.sv
     file_type: systemVerilogSource

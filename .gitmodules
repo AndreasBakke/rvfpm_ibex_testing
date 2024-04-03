@@ -1,0 +1,3 @@
+[submodule "vendor/rvfpm"]
+	path = vendor/rvfpm
+	url = https://github.com/AndreasBakke/rvfpm.git

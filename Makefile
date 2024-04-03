@@ -10,6 +10,19 @@ help:
 	@echo "Please check the documentation on how to get started"
 	@echo "or how to set-up the different environments."
 
+include ./vendor/rvfpm/work/Makefile
+include ./examples/sw/simple_system/hello_test_float/Makefile
+.PHONY: rvfpm
+rvfpm:
+	make -C examples/sw/simple_system/hello_test_float
+	make -C ./vendor/rvfpm/work setup CONFIG="run/ibex_config.yaml"
+	fusesoc --cores-root=. run --target=sim --setup --build \
+	lowrisc:ibex:ibex_simple_system \
+	$(shell ./util/ibex_config.py small-cvxif fusesoc_opts)
+	./build/lowrisc_ibex_ibex_simple_system_0/sim-verilator/Vibex_simple_system \
+	-t --meminit=ram,./examples/sw/simple_system/hello_test_float/hello_test_float.elf
+
+
 # Use a parallel run (make -j N) for a faster build
 build-all: build-riscv-compliance build-simple-system build-arty-100 \
       build-csr-test

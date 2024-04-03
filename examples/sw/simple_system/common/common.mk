@@ -8,7 +8,7 @@ COMMON_SRCS = $(wildcard $(COMMON_DIR)/*.c)
 INCS := -I$(COMMON_DIR)
 
 # ARCH = rv32im # to disable compressed instructions
-ARCH ?= rv32imfc
+ARCH ?= rv32imf
 
 ifdef PROGRAM
 PROGRAM_C := $(PROGRAM).c
@@ -19,7 +19,7 @@ SRCS = $(COMMON_SRCS) $(PROGRAM_C) $(EXTRA_SRCS)
 C_SRCS = $(filter %.c, $(SRCS))
 ASM_SRCS = $(filter %.S, $(SRCS))
 
-CC = riscv32-unknown-elf-gcc
+CC = riscv32-corev-elf-gcc
 
 CROSS_COMPILE = $(patsubst %-gcc,%-,$(CC))
 OBJCOPY ?= $(CROSS_COMPILE)objcopy
@@ -31,7 +31,7 @@ CRT ?= $(COMMON_DIR)/crt0.S
 	# -fvisibility=hidden -nostdlib -nostartfiles -ffreestanding $(PROGRAM_CFLAGS)
 # CFLAGS ?= -march=$(ARCH) -mabi=ilp32 -static -mcmodel=medany -Wall -O3 -ffast-math\
 	# -fvisibility=hidden -nostdlib -nostartfiles -ffreestanding $(PROGRAM_CFLAGS)
-CFLAGS ?= -march=$(ARCH) -mabi=ilp32 -static -mcmodel=medlow -mtune=sifive-3-series \
+CFLAGS ?= -march=$(ARCH) -mabi=ilp32f -static -mcmodel=medlow -mtune=sifive-3-series \
   -O3 -falign-functions=16 -funroll-all-loops -finline-functions -falign-jumps=4 -nostdlib -nostartfiles -ffreestanding -mstrict-align
 
 OBJS := ${C_SRCS:.c=.o} ${ASM_SRCS:.S=.o} ${CRT:.S=.o}
