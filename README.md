@@ -15,6 +15,7 @@ In this fork the following changes has been done to verify the RVFPM using the "
 - Changed path to the compiler, and added the f flag to the compiler in _examples/sw/simple_system/common/common.mk_
 - Expanded the sw-test _examples/sw/simple_system/hello_test_float/hello_test_float.c_
   - This to test more functionality.
+- Created  ibex_config.yaml in _rvfpm/work/run_ with settings to match the fpu_ss.
  
 ## Setup and verification
 Refer to the readme in examples/simple_system for more information about the simulations and setup.
