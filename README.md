@@ -19,14 +19,16 @@ In this fork the following changes has been done to verify the RVFPM using the "
  
 ## Setup and verification
 Refer to the readme in examples/simple_system for more information about the simulations and setup.
+
 To run the hello_test_float.c test for the rvfpm using the ibex core do the following:
-1. Install Verilator and build from source.
-2. Install Python dependencies with ```pip3 install -U -r pyton-requirements.txt ``` from the repository root.
-3. Install a RISC-V Compiler toolchain, and update the variable _CC_ in  _examples/sw/simple_system/common/common.mk_.
-4. Install libelf with ```apt-get install libelf-dev```.
-5. Update submodules using ```git submodule update --init --recursive``` from root.
-6. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation. 
-7. View logs (sim.fst) using your preffered wave-form viewer.
+1. Make sure the current branch is cvxif/2022/v0.2
+2. Install Verilator and build from source.
+3. Install Python dependencies with ```pip3 install -U -r pyton-requirements.txt ``` from the repository root.
+4. Install a RISC-V Compiler toolchain, and update the variable _CC_ in  _examples/sw/simple_system/common/common.mk_.
+5. Install libelf with ```apt-get install libelf-dev```.
+6. Update submodules using ```git submodule update --init --recursive``` from root.
+7. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation. 
+8. View logs (sim.fst) using your preffered wave-form viewer.
 
 The following is the original readme for the IBEX system.
 ## About IBEX
