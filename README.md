@@ -1,7 +1,34 @@
-[![Build Status](https://dev.azure.com/lowrisc/ibex/_apis/build/status/lowRISC.ibex?branchName=master)](https://dev.azure.com/lowrisc/ibex/_build/latest?definitionId=3&branchName=master)
+# Ibex RISC-V Core fork - modified for RVFPM verification
 
-# Ibex RISC-V Core
+## Changes for RVFPM verification
+To verify the RVFPM implementation, this repository was formed from the cvxif/2022/v0.2 branch of the IBEX system. This branch adds the eXtension interface to both the IBEX core and its existing FPU.
+In this fork the following changes has been done to verify the RVFPM using the "simple_system" setup in examples/:
+- Added rvfpm as a submodule in _vendor/rvfpm._
+- Modified the Makefile to simplify running tests.
+- Ignored four warnings to _example/simple_system/ibex_simple_system.core_
+  - This was required to get the base branch running, even before adding RVFPM.
+- Added rvfpm to _examples/simple_system/ibex_simple_syst_core.core_
+- Commented out the fpu_ss already present
+- Added the rvfpm using the same ports as the fpu_ss.
+- Removed the "compressed" instruction set from _examples/sw/simple_system/common/common.mk_
+  - Can later be added if the compressed channel is implemented for RVFPM.
+- Changed path to the compiler, and added the f flag to the compiler in _examples/sw/simple_system/common/common.mk_
+- Expanded the sw-test _examples/sw/simple_system/hello_test_float/hello_test_float.c_
+  - This to test more functionality.
+ 
+## Setup and verification
+Refer to the readme in examples/simple_system for more information about the simulations and setup.
+To run the hello_test_float.c test for the rvfpm using the ibex core do the following:
+1. Install Verilator and build from source.
+2. Install Python dependencies with ```pip3 install -U -r pyton-requirements.txt ``` from the repository root.
+3. Install a RISC-V Compiler toolchain, and update the variable _CC_ in  _examples/sw/simple_system/common/common.mk_.
+4. Install libelf with ```apt-get install libelf-dev```.
+5. Update submodules using ```git submodule update --init --recursive``` from root.
+6. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation. 
+7. View logs (sim.fst) using your preffered wave-form viewer.
 
+The following is the original readme for the IBEX system.
+## About IBEX
 Ibex is a production-quality open source 32-bit RISC-V CPU core written in
 SystemVerilog. The CPU core is heavily parametrizable and well suited for
 embedded control applications. Ibex is being extensively verified and has
