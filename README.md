@@ -12,7 +12,8 @@ In this fork the following changes has been done to verify the RVFPM using the "
 - Added the rvfpm using the same ports as the fpu_ss.
 - Removed the "compressed" instruction set from _examples/sw/simple_system/common/common.mk_
   - Can later be added if the compressed channel is implemented for RVFPM.
-- Changed path to the compiler, and added the f flag to the compiler in _examples/sw/simple_system/common/common.mk_
+- Changed path to the compiler, and added the f flag to -mabi for CFLAGS in _examples/sw/simple_system/common/common.mk_
+  - The f flag makes sure ibex uses HW for floating-point instead of software.
 - Expanded the sw-test _examples/sw/simple_system/hello_test_float/hello_test_float.c_
   - This to test more functionality.
 - Created  ibex_config.yaml in _rvfpm/work/run_ with settings to match the fpu_ss.
