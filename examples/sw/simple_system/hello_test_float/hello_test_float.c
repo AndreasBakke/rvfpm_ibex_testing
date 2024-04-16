@@ -4,9 +4,10 @@
 
 #include "simple_system_common.h"
 volatile float a, b, c, d, e, f, g;
+volatile char array[32];
 
 void add(float a, float b, float *res) {
-  *res = a + a * b;
+  *res = a + b;
 }
 
 void fmadd(float op1, float op2, float op3, float *res) {
@@ -21,6 +22,8 @@ int main(int argc, char **argv) {
   a = 123.243;
   b = 475.874;
   add(a, b, &c);
+  // puts("Res1: ");
+  // puts(array);
   // printf("The result is: %f", c);
 
   d = 11.9888;

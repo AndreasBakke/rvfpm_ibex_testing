@@ -1,0 +1,74 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Wed Apr  3 12:52:04 2024
+[*]
+[dumpfile] "/home/andreasb/Documents/NTNU/ibex/sim.fst"
+[dumpfile_mtime] "Wed Apr  3 12:36:34 2024"
+[dumpfile_size] 748402
+[savefile] "/home/andreasb/Documents/NTNU/ibex/waves/rvfpm.gtkw"
+[timestart] 505
+[size] 1850 1016
+[pos] -1 -1
+*-4.001938 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.ibex_simple_system.
+[treeopen] TOP.ibex_simple_system.rvfpm_i.
+[sst_width] 233
+[signals_width] 240
+[sst_expanded] 1
+[sst_vpaned_height] 289
+@28
+TOP.ibex_simple_system.rvfpm_i.ck
+@200
+-Commit interface
+@28
+TOP.ibex_simple_system.x_commit_valid
+@29
+TOP.ibex_simple_system.rvfpm_i.commit.commit_kill
+@22
+TOP.ibex_simple_system.x_commit.id[3:0]
+@200
+-
+-Issue interface
+@28
+TOP.ibex_simple_system.x_issue_ready
+TOP.ibex_simple_system.x_issue_valid
+@22
+TOP.ibex_simple_system.rvfpm_i.issue_req.id[3:0]
+@28
+TOP.ibex_simple_system.x_issue_resp.accept
+@200
+-
+-Memory interface
+@28
+TOP.ibex_simple_system.x_mem_valid
+@22
+TOP.ibex_simple_system.rvfpm_i.mem_req.id[3:0]
+TOP.ibex_simple_system.rvfpm_i.mem_req.addr[31:0]
+TOP.ibex_simple_system.rvfpm_i.mem_req.wdata[31:0]
+@28
+TOP.ibex_simple_system.x_mem_ready
+@200
+-
+-Memory result
+@28
+TOP.ibex_simple_system.x_mem_result_valid
+@22
+TOP.ibex_simple_system.x_mem_req.id[3:0]
+TOP.ibex_simple_system.rvfpm_i.mem_result.rdata[31:0]
+@200
+-
+-Result interface
+@28
+TOP.ibex_simple_system.x_result_ready
+TOP.ibex_simple_system.x_result_valid
+@22
+TOP.ibex_simple_system.x_result.data[31:0]
+@28
+TOP.ibex_simple_system.x_result.ecsdata[5:0]
+TOP.ibex_simple_system.x_result.ecswe[2:0]
+@22
+TOP.ibex_simple_system.x_result.id[3:0]
+TOP.ibex_simple_system.x_result.rd[4:0]
+[pattern_trace] 1
+[pattern_trace] 0
