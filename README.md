@@ -26,7 +26,7 @@ To run the hello_test_float.c test for the rvfpm using the ibex core do the foll
 2. Install Verilator and build from source.
 3. Install Python dependencies with ```pip3 install -U -r pyton-requirements.txt ``` from the repository root.
 4. Install a RISC-V Compiler toolchain, and update the variable _CC_ in  _examples/sw/simple_system/common/common.mk_.
-  - Also add the path to the toolchain to your $PATH variable.
+   1. Also add the path to the toolchain to your $PATH variable.
 5. Install libelf with ```apt-get install libelf-dev```.
 6. Update submodules using ```git submodule update --init --recursive``` from root.
 7. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation. 
