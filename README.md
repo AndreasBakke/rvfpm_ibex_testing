@@ -12,12 +12,12 @@ In this fork the following changes has been done to verify the RVFPM using the "
 - Added the rvfpm using the same ports as the fpu_ss.
 - Removed the "compressed" instruction set from _examples/sw/simple_system/common/common.mk_
   - Can later be added if the compressed channel is implemented for RVFPM.
-- Changed path to the compiler, and added the f flag to -mabi for CFLAGS in _examples/sw/simple_system/common/common.mk_
+- Changed path to the compiler, and added the f flag to -mabi and ARCH for CFLAGS in _examples/sw/simple_system/common/common.mk_. For ZFINX, add "_zfinx" instead.
   - The f flag makes sure ibex uses HW for floating-point instead of software.
 - Expanded the sw-test _examples/sw/simple_system/hello_test_float/hello_test_float.c_
   - This to test more functionality.
 - Created  ibex_config.yaml in _rvfpm/work/run_ with settings to match the fpu_ss.
- 
+
 ## Setup and verification
 Refer to the readme in examples/simple_system for more information about the simulations and setup.
 
@@ -29,7 +29,7 @@ To run the hello_test_float.c test for the rvfpm using the ibex core do the foll
    1. Also add the path to the toolchain to your $PATH variable.
 5. Install libelf with ```apt-get install libelf-dev```.
 6. Update submodules using ```git submodule update --init --recursive``` from root.
-7. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation. 
+7. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation.
 8. View logs (sim.fst) using your preffered wave-form viewer.
 
 The following is the original readme for the IBEX system.

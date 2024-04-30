@@ -37,6 +37,9 @@ int puts(const char *str);
  */
 void puthex(uint32_t h);
 
+
+void putfloat(float f);
+
 /**
  * Immediately halts the simulation
  */

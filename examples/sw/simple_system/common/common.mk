@@ -9,6 +9,7 @@ INCS := -I$(COMMON_DIR)
 
 # ARCH = rv32im # to disable compressed instructions
 ARCH ?= rv32imf
+# ARCH ?= rv32im_zfinx #to use Zfinx extension
 
 ifdef PROGRAM
 PROGRAM_C := $(PROGRAM).c
@@ -33,6 +34,10 @@ CRT ?= $(COMMON_DIR)/crt0.S
 	# -fvisibility=hidden -nostdlib -nostartfiles -ffreestanding $(PROGRAM_CFLAGS)
 CFLAGS ?= -march=$(ARCH) -mabi=ilp32f -static -mcmodel=medlow -mtune=sifive-3-series \
   -O3 -falign-functions=16 -funroll-all-loops -finline-functions -falign-jumps=4 -nostdlib -nostartfiles -ffreestanding -mstrict-align
+
+# Remove f from -mabi for Zfinx:
+# CFLAGS ?= -march=$(ARCH) -mabi=ilp32 -static -mcmodel=medlow -mtune=sifive-3-series \
+#  -O3 -falign-functions=16 -funroll-all-loops -finline-functions -falign-jumps=4 -nostdlib -nostartfiles -ffreestanding -mstrict-align
 
 OBJS := ${C_SRCS:.c=.o} ${ASM_SRCS:.S=.o} ${CRT:.S=.o}
 DEPS = $(OBJS:%.o=%.d)

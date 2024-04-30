@@ -34,6 +34,12 @@ void puthex(uint32_t h) {
   }
 }
 
+void putfloat(float f) {
+  char buffer[32];
+  // sprintf(buffer, "%.6f", f);
+  puts(buffer);
+}
+
 void sim_halt() { DEV_WRITE(SIM_CTRL_BASE + SIM_CTRL_CTRL, 1); }
 
 void pcount_reset() {
