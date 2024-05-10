@@ -304,75 +304,82 @@ module ibex_simple_system (
       .x_result_i             (x_result)
     );
 
-  // fpu_ss #(
-  //     .PULP_ZFINX           ( 0 ),
-  //     .INPUT_BUFFER_DEPTH   ( 1 ),
-  //     .OUT_OF_ORDER         ( 1 ),
-  //     .FORWARDING           ( 1 ),
-  //     .FPU_FEATURES         (   ),
-  //     .FPU_IMPLEMENTATION   (   )
-  // ) fpu_ss_i (
-  //     // clock and reset
-  //     .clk_i                (clk_sys),
-  //     .rst_ni               (rst_sys_n),
+  fpu_ss #(
+      .PULP_ZFINX           ( 0 ),
+      .INPUT_BUFFER_DEPTH   ( 1 ),
+      .OUT_OF_ORDER         ( 1 ),
+      .FORWARDING           ( 1 ),
+      .FPU_FEATURES         (   ),
+      .FPU_IMPLEMENTATION   (   )
+  ) fpu_ss_i (
+      // clock and reset
+      .clk_i                (clk_sys),
+      .rst_ni               (rst_sys_n),
 
-  //     // Compressed Interface
-  //     .x_compressed_valid_i (x_compressed_valid),
-  //     .x_compressed_ready_o (x_compressed_ready),
-  //     .x_compressed_req_i   (x_compressed_req),
-  //     .x_compressed_resp_o  (x_compressed_resp),
+      // Compressed Interface
+      .x_compressed_valid_i (x_compressed_valid),
+      .x_compressed_ready_o (x_compressed_ready),
+      .x_compressed_req_i   (x_compressed_req),
+      .x_compressed_resp_o  (x_compressed_resp),
 
-  //     // Issue Interface
-  //     .x_issue_valid_i      (x_issue_valid),
-  //     .x_issue_ready_o      (x_issue_ready),
-  //     .x_issue_req_i        (x_issue_req),
-  //     .x_issue_resp_o       (x_issue_resp),
+      // Issue Interface
+      .x_issue_valid_i      (x_issue_valid),
+      .x_issue_ready_o      (x_issue_ready),
+      .x_issue_req_i        (x_issue_req),
+      .x_issue_resp_o       (x_issue_resp),
 
-  //     // Commit Interface
-  //     .x_commit_valid_i     (x_commit_valid),
-  //     .x_commit_i           (x_commit),
+      // Commit Interface
+      .x_commit_valid_i     (x_commit_valid),
+      .x_commit_i           (x_commit),
 
-  //     // Memory Request/Response Interface
-  //     .x_mem_valid_o        (x_mem_valid),
-  //     .x_mem_ready_i        (x_mem_ready),
-  //     .x_mem_req_o          (x_mem_req),
-  //     .x_mem_resp_i         (x_mem_resp),
+      // Memory Request/Response Interface
+      .x_mem_valid_o        (x_mem_valid),
+      .x_mem_ready_i        (x_mem_ready),
+      .x_mem_req_o          (x_mem_req),
+      .x_mem_resp_i         (x_mem_resp),
 
-  //     // Memory Result Interface
-  //     .x_mem_result_valid_i (x_mem_result_valid),
-  //     .x_mem_result_i       (x_mem_result),
+      // Memory Result Interface
+      .x_mem_result_valid_i (x_mem_result_valid),
+      .x_mem_result_i       (x_mem_result),
 
-  //     // Result Interface
-  //     .x_result_valid_o     (x_result_valid),
-  //     .x_result_ready_i     (x_result_ready),
-  //     .x_result_o           (x_result)
-  // );
+      // Result Interface
+      .x_result_valid_o     (x_result_valid),
+      .x_result_ready_i     (x_result_ready),
+      .x_result_o           (x_result)
+  );
 
+  logic                         x_issue_ready_rvfpm;
+  ibex_pkg::x_issue_resp_t      x_issue_resp_rvfpm;
 
+  logic                         x_mem_valid_rvfpm;
+  ibex_pkg::x_mem_req_t         x_mem_req_rvfpm;
+
+  logic                         x_result_valid_rvfpm;
+  ibex_pkg::x_result_t          x_result_rvfpm;
 
   logic rvfpm_ready;
   rvfpm #(
   ) rvfpm_i (
       // clock and reset
-      .ck                 (clk_sys),
-      .rst                (rst_sys_n),
-      .enable             (1),
-      .fpu_ready          (rvfpm_ready),
+      .ck               (clk_sys),
+      .rst              (rst_sys_n),
+      .enable           (1),
+      .fpu_ready        (rvfpm_ready),
 
       // Issue Interface
-      .issue_valid (x_issue_valid),
-      .issue_ready  (x_issue_ready),
-      .issue_req    (x_issue_req),
-      .issue_resp    (x_issue_resp),
+      .issue_valid      (x_issue_valid),
+      .issue_ready      (x_issue_ready_rvfpm),
+      .issue_req        (x_issue_req),
+      .issue_resp       (x_issue_resp_rvfpm),
 
       // Commit Interface
       .commit_valid     (x_commit_valid),
       .commit           (x_commit),
 
       // Memory Request/Response Interface
-      .mem_valid        (x_mem_valid),
+      .mem_valid        (x_mem_valid_rvfpm),
       .mem_ready        (x_mem_ready),
-      .mem_req          (x_mem_req),
+      .mem_req          (x_mem_req_rvfpm),
       .mem_resp         (x_mem_resp),
 
       // Memory Result Interface
@@ -380,9 +387,9 @@ module ibex_simple_system (
       .mem_result       (x_mem_result),
 
       // Result Interface
-      .result_valid     (x_result_valid),
+      .result_valid     (x_result_valid_rvfpm),
       .result_ready     (x_result_ready),
-      .result           (x_result)
+      .result           (x_result_rvfpm)
   );
 
   // SRAM block for instruction and data storage
