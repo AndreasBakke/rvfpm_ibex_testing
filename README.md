@@ -18,6 +18,9 @@ In this fork the following changes has been done to verify the rvfpm using the "
   - This to test more functionality.
 - Created  ibex_config.yaml in _rvfpm/work/run_ with settings to match the fpu_ss.
 
+### Step and compare verification
+For step and compare verification, connect both the fpu_ss and rvfpm to the cpu using the eXtension interface. The output ports should be connected to different signals, e.g. seperate ones for the rvfpm to be properly compared. Refer to the branch _step_by_step_ for an example.
+
 ## Setup and verification
 Refer to the readme in examples/simple_system for more information about the simulations and setup.
 
