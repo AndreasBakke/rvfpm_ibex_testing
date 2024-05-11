@@ -1,7 +1,7 @@
-# Ibex RISC-V Core fork - modified for RVFPM verification
+# Ibex RISC-V Core fork - modified for rvfpm verification
 
 ## Changes for rvfpm verification
-To verify the rvfpm implementation, this repository was formed from the cvxif/2022/v0.2 branch of the IBEX system. This branch adds the eXtension interface to both the IBEX core and its existing FPU.
+To verify the rvfpm implementation, this repository was forked from the cvxif/2022/v0.2 branch of the IBEX system. This branch adds the eXtension interface to both the IBEX core and its existing FPU.
 In this fork the following changes has been done to verify the rvfpm using the "simple_system" setup in examples/:
 - Added rvfpm as a submodule in _vendor/rvfpm._
 - Modified the Makefile in the base directory to simplify running tests.
