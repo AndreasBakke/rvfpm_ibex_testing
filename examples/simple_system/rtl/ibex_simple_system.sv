@@ -304,6 +304,7 @@ module ibex_simple_system (
       .x_result_i             (x_result)
     );
 
+
   fpu_ss #(
       .PULP_ZFINX           ( 0 ),
       .INPUT_BUFFER_DEPTH   ( 1 ),

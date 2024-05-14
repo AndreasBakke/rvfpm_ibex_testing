@@ -1,22 +1,25 @@
-# Ibex RISC-V Core fork - modified for RVFPM verification
+# Ibex RISC-V Core fork - modified for rvfpm verification
 
-## Changes for RVFPM verification
-To verify the RVFPM implementation, this repository was formed from the cvxif/2022/v0.2 branch of the IBEX system. This branch adds the eXtension interface to both the IBEX core and its existing FPU.
-In this fork the following changes has been done to verify the RVFPM using the "simple_system" setup in examples/:
+## Changes for rvfpm verification
+To verify the rvfpm implementation, this repository was forked from the cvxif/2022/v0.2 branch of the IBEX system. This branch adds the eXtension interface to both the IBEX core and its existing FPU.
+In this fork the following changes has been done to verify the rvfpm using the "simple_system" setup in examples/:
 - Added rvfpm as a submodule in _vendor/rvfpm._
-- Modified the Makefile to simplify running tests.
-- Ignored four warnings to _example/simple_system/ibex_simple_system.core_
-  - This was required to get the base branch running, even before adding RVFPM.
+- Modified the Makefile in the base directory to simplify running tests.
+- Ignored four warnings in _example/simple_system/ibex_simple_system.core_
+  - This was required to get the base branch running, even before adding rvfpm.
 - Added rvfpm to _examples/simple_system/ibex_simple_syst_core.core_
-- Commented out the fpu_ss already present
-- Added the rvfpm using the same ports as the fpu_ss.
+- Commented out the fpu_ss already present in _examples/simple_system/rtl/ibex_simple_system.sv_
+- Added the rvfpm in the same file using the same ports as the fpu_ss.
 - Removed the "compressed" instruction set from _examples/sw/simple_system/common/common.mk_
-  - Can later be added if the compressed channel is implemented for RVFPM.
+  - Can later be added if the compressed channel is implemented for rvfpm.
 - Changed path to the compiler, and added the f flag to -mabi and ARCH for CFLAGS in _examples/sw/simple_system/common/common.mk_. For ZFINX, add "_zfinx" instead.
   - The f flag makes sure ibex uses HW for floating-point instead of software.
 - Expanded the sw-test _examples/sw/simple_system/hello_test_float/hello_test_float.c_
   - This to test more functionality.
 - Created  ibex_config.yaml in _rvfpm/work/run_ with settings to match the fpu_ss.
+
+### Step and compare verification
+For step and compare verification, connect both the fpu_ss and rvfpm to the cpu using the eXtension interface. The output ports should be connected to different signals, e.g. seperate ones for the rvfpm to be properly compared. Refer to the branch _step_by_step_ for an example.
 
 ## Setup and verification
 Refer to the readme in examples/simple_system for more information about the simulations and setup.
@@ -24,12 +27,12 @@ Refer to the readme in examples/simple_system for more information about the sim
 To run the hello_test_float.c test for the rvfpm using the ibex core do the following:
 1. Make sure the current branch is cvxif/2022/v0.2
 2. Install Verilator and build from source.
-3. Install Python dependencies with ```pip3 install -U -r pyton-requirements.txt ``` from the repository root.
+3. Install Python dependencies with ```pip3 install -U -r pyton-requirements.txt ``` from the repository base directory.
 4. Install a RISC-V Compiler toolchain, and update the variable _CC_ in  _examples/sw/simple_system/common/common.mk_.
    1. Also add the path to the toolchain to your $PATH variable.
 5. Install libelf with ```apt-get install libelf-dev```.
-6. Update submodules using ```git submodule update --init --recursive``` from root.
-7. Run ```make rvfpm``` from root to build the simulator binary, software and run the simulation.
+6. Update submodules using ```git submodule update --init --recursive``` from the base directory of the repository.
+7. Run ```make rvfpm``` from the base directory to build the simulator binary, software and run the simulation.
 8. View logs (sim.fst) using your preffered wave-form viewer.
 
 The following is the original readme for the IBEX system.
