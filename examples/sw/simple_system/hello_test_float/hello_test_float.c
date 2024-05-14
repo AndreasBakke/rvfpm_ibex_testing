@@ -145,7 +145,7 @@ int main(int argc, char **argv) {
   puts("\n Expecting 0x100: ");
   puthex(z);
 
-  x = 0x7FC00000; ///Create QNAN in X registers
+  x = 0x7FA00000; ///Create QNAN in X registers
   __asm__("fmv.w.x %0, %1" : "=f"(k) : "r"(x)); //move to f-reg
   __asm__("fclass.s %0, %1" : "=r"(x) : "f"(k)); //QNAN
   puts("\n Expecting 0x200: ");
