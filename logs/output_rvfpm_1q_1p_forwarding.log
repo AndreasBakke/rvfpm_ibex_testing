@@ -1,0 +1,80 @@
+Hello simple system
+
+Add 123.243 & 475.875: 00000257.00002DB4
+
+100 FMADDs result in: 442E7F9D
+
+Performing 20 divisions:
+ i=00000000 result: 40771EFB
+ i=00000001 result: 3D00546C
+ i=00000002 result: 3985487A
+ i=00000003 result: 360A6D7A
+ i=00000004 result: 328FC550
+ i=00000005 result: 2F1551F2
+ i=00000006 result: 2B9B156A
+ i=00000007 result: 282111D5
+ i=00000008 result: 24A74966
+ i=00000009 result: 212DBE66
+ i=0000000A result: 1DB47333
+ i=0000000B result: 1A3B6A45
+ i=0000000C result: 16C2A62A
+ i=0000000D result: 134A298A
+ i=0000000E result: 0FD1F727
+ i=0000000F result: 0C5A11DF
+ i=00000010 result: 08E27CAC
+ i=00000011 result: 056B3AA5
+ i=00000012 result: 01F44F00
+ i=00000013 result: 0007EDE9
+
+Performing 20 square roots:
+ i=00000000 result: 41AE842C
+ i=00000001 result: 40957595
+ i=00000002 result: 400A5069
+ i=00000003 result: 3FBC2BD5
+ i=00000004 result: 3F9B3246
+ i=00000005 result: 3F8CF199
+ i=00000006 result: 3F8650E8
+ i=00000007 result: 3F831EB8
+ i=00000008 result: 3F818CF4
+ i=00000009 result: 3F80C5E1
+ i=0000000A result: 3F8062CA
+ i=0000000B result: 3F80315B
+ i=0000000C result: 3F8018AB
+ i=0000000D result: 3F800C55
+ i=0000000E result: 3F80062A
+ i=0000000F result: 3F800315
+ i=00000010 result: 3F80018A
+ i=00000011 result: 3F8000C5
+ i=00000012 result: 3F800062
+ i=00000013 result: 3F800031
+
+Sign, max and fnmsub in while loop testing.
+ Final result:C06D7F2B
+
+Testing Classify instructions: 
+ Expecting 0x1: 00000001
+ Expecting 0x2: 00000002
+ Expecting 0x4: 00000004
+ Expecting 0x8: 00000008
+ Expecting 0x10: 00000010
+ Expecting 0x20: 00000020
+ Expecting 0x40: 00000040
+ Expecting 0x80: 00000080
+ Expecting 0x100: 00000100
+ Expecting 0x200: 00000100
+
+Testing MIN instructions: 
+ Min(0.0, -0.0), expecting: 0x8000000: 80000000
+ Min(1.0e-43, 1.0e-44), expecting: 0x0000007: 00000007
+ Min(2.0e38f, 2.1e38f), expecting: 0x7f167699: 7F167699
+
+Testing MAX instructions: 
+ MAX(0.0, -0.0), expecting: 0x0: 00000000
+ MAX(1.0e-43, 1.0e-44), expecting: 0x00000047: 00000047
+ MAX(2.0e38f, 2.1e38f), expecting: 0x7f1dfc87: 7F1DFC87
+
+Tick!
+Tock!
+Tick!
+Tock!
+Tick!
