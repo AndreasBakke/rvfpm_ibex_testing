@@ -1,0 +1,21 @@
+
+ZFINX:
+Cycles:                      2976
+NONE:                        0
+Instructions Retired:        1807
+LSU Busy:                    822
+Fetch Wait:                  44
+Loads:                       486
+Stores:                      336
+Jumps:                       43
+Conditional Branches:        143
+Taken Conditional Branches:  44
+Compressed Instructions:     0
+Multiply Wait:               0
+Divide Wait:                 0
+XIF Instructions Retired:    315
+XIF Compressed Instructions: 0
+XIF WriteBack:               315
+XIF Offload Stall:           0
+XIF External Stall:          0
+XIF WriteBack Stall:         182

@@ -1,0 +1,70 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu May  2 11:46:35 2024
+[*]
+[dumpfile] "/home/andreasb/Documents/NTNU/ibex/sim.fst"
+[dumpfile_mtime] "Thu May  2 10:57:02 2024"
+[dumpfile_size] 1613959
+[savefile] "/home/andreasb/Documents/NTNU/ibex/sim_stepByStep.gtkw"
+[timestart] 1357
+[size] 1850 1016
+[pos] -101 -101
+*-5.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.ibex_simple_system.
+[treeopen] TOP.ibex_simple_system.fpu_ss_i.
+[treeopen] TOP.ibex_simple_system.rvfpm_i.
+[sst_width] 332
+[signals_width] 239
+[sst_expanded] 1
+[sst_vpaned_height] 289
+@28
+TOP.IO_CLK
+TOP.IO_RST_N
+@200
+-
+-fpu_ss
+-Issue and Commit
+@28
+TOP.ibex_simple_system.fpu_ss_i.x_commit_valid_i
+TOP.ibex_simple_system.fpu_ss_i.x_issue_valid_i
+TOP.ibex_simple_system.fpu_ss_i.x_issue_ready_o
+@200
+-Memory
+@28
+TOP.ibex_simple_system.fpu_ss_i.x_mem_ready_i
+TOP.ibex_simple_system.fpu_ss_i.x_mem_valid_o
+TOP.ibex_simple_system.fpu_ss_i.x_mem_result_valid_i
+@200
+-Result
+@28
+TOP.ibex_simple_system.fpu_ss_i.x_result_ready_i
+TOP.ibex_simple_system.fpu_ss_i.x_result_valid_o
+@23
+TOP.ibex_simple_system.fpu_ss_i.x_result_o.id[3:0]
+@22
+TOP.ibex_simple_system.fpu_ss_i.x_result_o.data[31:0]
+@200
+-
+-rvfpm
+-Issue and Commit
+@28
+TOP.ibex_simple_system.rvfpm_i.commit_valid
+TOP.ibex_simple_system.rvfpm_i.issue_valid
+TOP.ibex_simple_system.rvfpm_i.issue_ready
+@200
+-Memory
+@28
+TOP.ibex_simple_system.rvfpm_i.mem_ready
+TOP.ibex_simple_system.rvfpm_i.mem_valid
+TOP.ibex_simple_system.rvfpm_i.mem_result_valid
+@200
+-Result
+@28
+TOP.ibex_simple_system.rvfpm_i.result_ready
+TOP.ibex_simple_system.rvfpm_i.result_valid
+@22
+TOP.ibex_simple_system.rvfpm_i.result.id[3:0]
+TOP.ibex_simple_system.rvfpm_i.result.data[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
