@@ -23,6 +23,19 @@ rvfpm:
 	-t --meminit=ram,./examples/sw/simple_system/hello_test_float/hello_test_float.elf
 
 
+
+#Make sure to update ARCH and CFLAGS in common.mk before running rvfpm_zfinx
+.PHONY: rvfpm_zfinx
+rvfpm_zfinx:
+	make -C examples/sw/simple_system/hello_test_float_zfinx
+	make -C ./vendor/rvfpm/work setup CONFIG="run/ibex_config.yaml"
+	fusesoc --cores-root=. run --target=sim --setup --build \
+	lowrisc:ibex:ibex_simple_system \
+	$(shell ./util/ibex_config.py small-cvxif fusesoc_opts)
+	./build/lowrisc_ibex_ibex_simple_system_0/sim-verilator/Vibex_simple_system \
+	-t --meminit=ram,./examples/sw/simple_system/hello_test_float/hello_test_float.elf
+
+
 # Use a parallel run (make -j N) for a faster build
 build-all: build-riscv-compliance build-simple-system build-arty-100 \
       build-csr-test
