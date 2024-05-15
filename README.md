@@ -33,7 +33,8 @@ To run the hello_test_float.c test for the rvfpm using the ibex core do the foll
 5. Install libelf with ```apt-get install libelf-dev```.
 6. Update submodules using ```git submodule update --init --recursive``` from the base directory of the repository.
 7. Run ```make rvfpm``` from the base directory to build the simulator binary, software and run the simulation.
-8. View logs (sim.fst) using your preffered wave-form viewer.
+   - For Zfinx, run ```make rvfpm_zfinx```. Remember to update flags in [common.mk](examples/sw/simple_system/common/common.mk) and add Zfinx to extensions in [ibex_config.yaml](https://github.com/AndreasBakke/rvfpm/blob/main/work/run/ibex_config.yaml).
+9. View logs (sim.fst) using your preffered wave-form viewer.
 
 The following is the original readme for the IBEX system.
 ## About IBEX
