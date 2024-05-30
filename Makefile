@@ -33,7 +33,7 @@ rvfpm_zfinx:
 	lowrisc:ibex:ibex_simple_system \
 	$(shell ./util/ibex_config.py small-cvxif fusesoc_opts)
 	./build/lowrisc_ibex_ibex_simple_system_0/sim-verilator/Vibex_simple_system \
-	-t --meminit=ram,./examples/sw/simple_system/hello_test_float/hello_test_float.elf
+	-t --meminit=ram,./examples/sw/simple_system/hello_test_float_zfinx/hello_test_float_zfinx.elf
 
 
 # Use a parallel run (make -j N) for a faster build
