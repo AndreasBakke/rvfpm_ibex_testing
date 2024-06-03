@@ -1,6 +1,8 @@
 // Copyright lowRISC contributors.
 // Licensed under the Apache License, Version 2.0, see LICENSE for details.
 // SPDX-License-Identifier: Apache-2.0
+// Changed by Andreas S. Bakke for verification of the RISC-V Floating-Point Coprocessor Model.
+
 
 #include "simple_system_common.h"
 volatile float a, b, c, d, e, f, g, h, i, j , k;
